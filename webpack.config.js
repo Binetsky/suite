@@ -3,12 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
-    publicPath: '/'
-  },
   module: {
     rules: [
       {
@@ -38,5 +32,5 @@ module.exports = {
       new HtmlWebpackPlugin({
         template: './index.html'
       })
-  ]
+  ],
 };
