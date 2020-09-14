@@ -2,29 +2,18 @@ const { pathsToModuleNameMapper } = require('ts-jest/utils');
 const { compilerOptions } = require('./tsconfig');
 
 module.exports = {
-  preset: 'ts-jest/presets/js-with-ts',
-  transform: {},
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'ts-jest',
+  },
   testEnvironment: 'jsdom',
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   roots: ['<rootDir>'],
   moduleDirectories: [
     ".",
-  ],
-  testPathIgnorePatterns: [
-    'cypress',
-    'node_modules'
-  ],
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  globals: {
-    'ts-jest': {
-      diagnostics: false,
-      isolatedModules: false,
-      tsConfig: {
-        target: 'es5',
-        module: 'commonjs',
-        moduleResolution: 'node',
-        allowJs: true,
-        esModuleInterop: true,
-      },
-    }
-  }
+    "src",
+    "src/utils",
+    'node_modules',
+    '<rootDir>/node_modules',
+  ]
 };

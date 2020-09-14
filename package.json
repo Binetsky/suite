@@ -4,15 +4,12 @@
   "description": "my basic React application",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --config webpack.dev.config",
-    "build": "npm run check && npm run clean && webpack --config webpack.prod.config",
-    "analyze": "webpack --config webpack.analyze.config",
+    "start": "webpack-dev-server --mode development --open --hot",
     "lint": "eslint --color --ext .ts,.tsx src",
     "tsc": "tsc",
     "check": "npm run lint && npm run tsc",
-    "clean": "rimraf dist/",
-    "cypress": "cypress open",
-    "test": "jest --config jest.config.js"
+    "build": "webpack --mode production",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -25,8 +22,19 @@
     "webpack",
     "styles"
   ],
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
   "author": "Binetsky Aleksei",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Binetsky/suite/issues"
   },
@@ -64,10 +72,8 @@
     "ts-jest": "^26.3.0",
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
-    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.1.4"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@types/react": "^16.9.49",
