@@ -11,7 +11,8 @@
     "tsc": "tsc",
     "check": "npm run lint && npm run tsc",
     "clean": "rimraf dist/",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "test": "jest --config jest.config.js"
   },
   "repository": {
     "type": "git",
@@ -24,19 +25,8 @@
     "webpack",
     "styles"
   ],
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
-  },
   "author": "Binetsky Aleksei",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Binetsky/suite/issues"
   },
