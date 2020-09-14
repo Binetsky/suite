@@ -12,9 +12,9 @@ module.exports = merge(config, {
   },
   devServer: {
     historyApiFallback: true,
-    open: true,
     contentBase: path.resolve(__dirname, 'dist'),
     watchContentBase: true,
-    port: 3000
+    port: 3000,
+    open: true,
   }
 });
